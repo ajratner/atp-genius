@@ -1,0 +1,547 @@
+PhantomJS is launching GhostDriver...
+[INFO  - 2014-05-18T22:38:44.839Z] GhostDriver - Main - running on port 52929
+[INFO  - 2014-05-18T22:38:45.033Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.settings - {"XSSAuditingEnabled":false,"javascriptCanCloseWindows":true,"javascriptCanOpenWindows":true,"javascriptEnabled":true,"loadImages":true,"localToRemoteUrlAccessEnabled":false,"userAgent":"Mozilla/5.0 (Macintosh; PPC Mac OS X) AppleWebKit/534.34 (KHTML, like Gecko) PhantomJS/1.9.7 Safari/534.34","webSecurityEnabled":true}
+[INFO  - 2014-05-18T22:38:45.033Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.customHeaders:  - {}
+[INFO  - 2014-05-18T22:38:45.033Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - Session.negotiatedCapabilities - {"browserName":"phantomjs","version":"1.9.7","driverName":"ghostdriver","driverVersion":"1.1.0","platform":"mac-unknown-64bit","javascriptEnabled":true,"takesScreenshot":true,"handlesAlerts":false,"databaseEnabled":false,"locationContextEnabled":false,"applicationCacheEnabled":false,"browserConnectionEnabled":false,"cssSelectorsEnabled":true,"webStorageEnabled":false,"rotatable":false,"acceptSslCerts":false,"nativeEvents":true,"proxy":{"proxyType":"direct"}}
+[INFO  - 2014-05-18T22:38:45.033Z] SessionManagerReqHand - _postNewSessionCommand - New Session Created: 2b817550-dedd-11e3-a4bf-b9c5d2ce7806
+[ERROR - 2014-05-18T22:39:06.324Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - msg: ReferenceError: Can't find variable: ychoices
+[ERROR - 2014-05-18T22:39:06.325Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - stack:
+  (anonymous function) (http://www.tennisabstract.com/cgi-bin/player.cgi?p=WillemPetrusMeyer&f=ACareerqqo1:229)
+[ERROR - 2014-05-18T22:41:05.989Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - msg: ReferenceError: Can't find variable: morematchmx
+[ERROR - 2014-05-18T22:41:05.990Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - stack:
+  (anonymous function) (http://www.tennisabstract.com/cgi-bin/player.cgi?p=MiljanZekic&f=ACareerqqo1:2091)
+  (anonymous function) (http://www.minorleaguesplits.com/tennisabstract/jquery-1.7.1-min.js:2)
+  (anonymous function) (http://www.minorleaguesplits.com/tennisabstract/jquery-1.7.1-min.js:2)
+  (anonymous function) (http://www.minorleaguesplits.com/tennisabstract/jquery-1.7.1-min.js:2)
+  (anonymous function) (http://www.minorleaguesplits.com/tennisabstract/jquery-1.7.1-min.js:2)
+[ERROR - 2014-05-18T22:43:00.105Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - msg: TypeError: 'undefined' is not a function (evaluating '$.widget')
+[ERROR - 2014-05-18T22:43:00.105Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - stack:
+  (anonymous function) (http://www.minorleaguesplits.com/tennisabstract/jquery.ui.autocomplete.js?_=1400452979944:423)
+  (anonymous function) (http://www.minorleaguesplits.com/tennisabstract/jquery.ui.autocomplete.js?_=1400452979944:438)
+[INFO  - 2014-05-18T22:43:44.839Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-18T22:48:44.841Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[ERROR - 2014-05-18T22:49:50.232Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - msg: TypeError: 'undefined' is not a function (evaluating '$.widget')
+[ERROR - 2014-05-18T22:49:50.232Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - stack:
+  (anonymous function) (http://www.minorleaguesplits.com/tennisabstract/jquery.ui.autocomplete.js?_=1400453389941:423)
+  (anonymous function) (http://www.minorleaguesplits.com/tennisabstract/jquery.ui.autocomplete.js?_=1400453389941:438)
+[ERROR - 2014-05-18T22:52:38.244Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - msg: SyntaxError: Parse error
+[ERROR - 2014-05-18T22:52:38.244Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - stack:
+
+[ERROR - 2014-05-18T22:52:38.398Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - msg: ReferenceError: Can't find variable: ychoices
+[ERROR - 2014-05-18T22:52:38.398Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - stack:
+  (anonymous function) (http://www.tennisabstract.com/cgi-bin/player.cgi?p=JoachimJohansson&f=ACareerqqo1:229)
+[ERROR - 2014-05-18T22:53:27.843Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - msg: TypeError: 'undefined' is not a function (evaluating '$.widget')
+[ERROR - 2014-05-18T22:53:27.843Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - stack:
+  (anonymous function) (http://www.minorleaguesplits.com/tennisabstract/jquery.ui.autocomplete.js?_=1400453607608:423)
+  (anonymous function) (http://www.minorleaguesplits.com/tennisabstract/jquery.ui.autocomplete.js?_=1400453607608:438)
+[INFO  - 2014-05-18T22:53:44.842Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[ERROR - 2014-05-18T22:54:28.589Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - msg: SyntaxError: Parse error
+[ERROR - 2014-05-18T22:54:28.589Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - stack:
+
+[ERROR - 2014-05-18T22:54:28.695Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - msg: ReferenceError: Can't find variable: ychoices
+[ERROR - 2014-05-18T22:54:28.695Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - stack:
+  (anonymous function) (http://www.tennisabstract.com/cgi-bin/player.cgi?p=JankoTipsarevic&f=ACareerqqo1:229)
+[ERROR - 2014-05-18T22:54:31.886Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - msg: TypeError: 'undefined' is not a function (evaluating '$.widget')
+[ERROR - 2014-05-18T22:54:31.886Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - stack:
+  (anonymous function) (http://www.minorleaguesplits.com/tennisabstract/jquery.ui.autocomplete.js?_=1400453671495:423)
+  (anonymous function) (http://www.minorleaguesplits.com/tennisabstract/jquery.ui.autocomplete.js?_=1400453671495:438)
+[ERROR - 2014-05-18T22:55:35.607Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - msg: ReferenceError: Can't find variable: ychoices
+[ERROR - 2014-05-18T22:55:35.607Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - stack:
+  (anonymous function) (http://www.tennisabstract.com/cgi-bin/player.cgi?p=AntonioAlcaraz&f=ACareerqqo1:229)
+[INFO  - 2014-05-18T22:58:44.843Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[ERROR - 2014-05-18T22:59:05.129Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - msg: TypeError: 'undefined' is not a function (evaluating '$.widget')
+[ERROR - 2014-05-18T22:59:05.130Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - stack:
+  (anonymous function) (http://www.minorleaguesplits.com/tennisabstract/jquery.ui.autocomplete.js?_=1400453944958:423)
+  (anonymous function) (http://www.minorleaguesplits.com/tennisabstract/jquery.ui.autocomplete.js?_=1400453944958:438)
+[INFO  - 2014-05-18T23:03:44.843Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[ERROR - 2014-05-18T23:03:50.614Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - msg: ReferenceError: Can't find variable: ychoices
+[ERROR - 2014-05-18T23:03:50.614Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - stack:
+  (anonymous function) (http://www.tennisabstract.com/cgi-bin/player.cgi?p=MarcosCondeJackson&f=ACareerqqo1:229)
+[ERROR - 2014-05-18T23:08:08.429Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - msg: TypeError: 'undefined' is not a function (evaluating '$.widget')
+[ERROR - 2014-05-18T23:08:08.429Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - stack:
+  (anonymous function) (http://www.minorleaguesplits.com/tennisabstract/jquery.ui.autocomplete.js?_=1400454488340:423)
+  (anonymous function) (http://www.minorleaguesplits.com/tennisabstract/jquery.ui.autocomplete.js?_=1400454488340:438)
+[INFO  - 2014-05-18T23:08:44.845Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[ERROR - 2014-05-18T23:11:40.191Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - msg: TypeError: 'undefined' is not a function (evaluating '$.widget')
+[ERROR - 2014-05-18T23:11:40.191Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - stack:
+  (anonymous function) (http://www.minorleaguesplits.com/tennisabstract/jquery.ui.autocomplete.js?_=1400454699854:423)
+  (anonymous function) (http://www.minorleaguesplits.com/tennisabstract/jquery.ui.autocomplete.js?_=1400454699854:438)
+[ERROR - 2014-05-18T23:12:08.094Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - msg: TypeError: 'undefined' is not a function (evaluating '$.widget')
+[ERROR - 2014-05-18T23:12:08.094Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - stack:
+  (anonymous function) (http://www.minorleaguesplits.com/tennisabstract/jquery.ui.autocomplete.js?_=1400454727887:423)
+  (anonymous function) (http://www.minorleaguesplits.com/tennisabstract/jquery.ui.autocomplete.js?_=1400454727887:438)
+[ERROR - 2014-05-18T23:13:38.963Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - msg: TypeError: 'undefined' is not a function (evaluating '$.widget')
+[ERROR - 2014-05-18T23:13:38.963Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - stack:
+  (anonymous function) (http://www.minorleaguesplits.com/tennisabstract/jquery.ui.autocomplete.js?_=1400454818787:423)
+  (anonymous function) (http://www.minorleaguesplits.com/tennisabstract/jquery.ui.autocomplete.js?_=1400454818787:438)
+[INFO  - 2014-05-18T23:13:44.846Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[ERROR - 2014-05-18T23:16:15.976Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - msg: SyntaxError: Parse error
+[ERROR - 2014-05-18T23:16:15.976Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - stack:
+
+[ERROR - 2014-05-18T23:16:15.986Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - msg: ReferenceError: Can't find variable: ychoices
+[ERROR - 2014-05-18T23:16:15.986Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - stack:
+  (anonymous function) (http://www.tennisabstract.com/cgi-bin/player.cgi?p=GiladBenZvi&f=ACareerqqo1:229)
+[INFO  - 2014-05-18T23:18:44.847Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-18T23:23:44.848Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[ERROR - 2014-05-18T23:28:39.261Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - msg: ReferenceError: Can't find variable: ychoices
+[ERROR - 2014-05-18T23:28:39.261Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - stack:
+  (anonymous function) (http://www.tennisabstract.com/cgi-bin/player.cgi?p=RahilSyed&f=ACareerqqo1:229)
+[INFO  - 2014-05-18T23:28:44.850Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[ERROR - 2014-05-18T23:28:46.587Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - msg: TypeError: 'undefined' is not a function (evaluating '$.widget')
+[ERROR - 2014-05-18T23:28:46.588Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - stack:
+  (anonymous function) (http://www.minorleaguesplits.com/tennisabstract/jquery.ui.autocomplete.js?_=1400455726473:423)
+  (anonymous function) (http://www.minorleaguesplits.com/tennisabstract/jquery.ui.autocomplete.js?_=1400455726473:438)
+[ERROR - 2014-05-18T23:29:49.886Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - msg: ReferenceError: Can't find variable: ychoices
+[ERROR - 2014-05-18T23:29:49.886Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - stack:
+  (anonymous function) (http://www.tennisabstract.com/cgi-bin/player.cgi?p=RafaelMorenoNegrin&f=ACareerqqo1:229)
+[ERROR - 2014-05-18T23:30:29.698Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - msg: TypeError: 'undefined' is not a function (evaluating '$.widget')
+[ERROR - 2014-05-18T23:30:29.698Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - stack:
+  (anonymous function) (http://www.minorleaguesplits.com/tennisabstract/jquery.ui.autocomplete.js?_=1400455829535:423)
+  (anonymous function) (http://www.minorleaguesplits.com/tennisabstract/jquery.ui.autocomplete.js?_=1400455829535:438)
+[ERROR - 2014-05-18T23:31:37.968Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - msg: TypeError: 'undefined' is not a function (evaluating '$.widget')
+[ERROR - 2014-05-18T23:31:37.969Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - stack:
+  (anonymous function) (http://www.minorleaguesplits.com/tennisabstract/jquery.ui.autocomplete.js?_=1400455895952:423)
+  (anonymous function) (http://www.minorleaguesplits.com/tennisabstract/jquery.ui.autocomplete.js?_=1400455895952:438)
+[ERROR - 2014-05-18T23:32:13.569Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - msg: ReferenceError: Can't find variable: morematchmx
+[ERROR - 2014-05-18T23:32:13.569Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - stack:
+  (anonymous function) (http://www.tennisabstract.com/cgi-bin/player.cgi?p=MaximilianAbel&f=ACareerqqo1:2091)
+  (anonymous function) (http://www.minorleaguesplits.com/tennisabstract/jquery-1.7.1-min.js:2)
+  (anonymous function) (http://www.minorleaguesplits.com/tennisabstract/jquery-1.7.1-min.js:2)
+  (anonymous function) (http://www.minorleaguesplits.com/tennisabstract/jquery-1.7.1-min.js:2)
+  (anonymous function) (http://www.minorleaguesplits.com/tennisabstract/jquery-1.7.1-min.js:2)
+[INFO  - 2014-05-18T23:33:44.851Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[ERROR - 2014-05-18T23:38:28.527Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - msg: TypeError: 'undefined' is not a function (evaluating '$.widget')
+[ERROR - 2014-05-18T23:38:28.527Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - stack:
+  (anonymous function) (http://www.minorleaguesplits.com/tennisabstract/jquery.ui.autocomplete.js?_=1400456308362:423)
+  (anonymous function) (http://www.minorleaguesplits.com/tennisabstract/jquery.ui.autocomplete.js?_=1400456308362:438)
+[INFO  - 2014-05-18T23:38:44.868Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-18T23:43:44.852Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-18T23:48:44.853Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[ERROR - 2014-05-18T23:50:34.184Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - msg: TypeError: 'undefined' is not a function (evaluating '$.widget')
+[ERROR - 2014-05-18T23:50:34.184Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - stack:
+  (anonymous function) (http://www.minorleaguesplits.com/tennisabstract/jquery.ui.autocomplete.js?_=1400457033926:423)
+  (anonymous function) (http://www.minorleaguesplits.com/tennisabstract/jquery.ui.autocomplete.js?_=1400457033926:438)
+[INFO  - 2014-05-18T23:53:44.852Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-18T23:58:44.853Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[ERROR - 2014-05-18T23:59:19.933Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - msg: TypeError: 'undefined' is not a function (evaluating '$.widget')
+[ERROR - 2014-05-18T23:59:19.933Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - stack:
+  (anonymous function) (http://www.minorleaguesplits.com/tennisabstract/jquery.ui.autocomplete.js?_=1400457559756:423)
+  (anonymous function) (http://www.minorleaguesplits.com/tennisabstract/jquery.ui.autocomplete.js?_=1400457559756:438)
+[INFO  - 2014-05-19T00:03:44.854Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[ERROR - 2014-05-19T00:05:47.268Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - msg: SyntaxError: Parse error
+[ERROR - 2014-05-19T00:05:47.268Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - stack:
+
+[ERROR - 2014-05-19T00:05:47.460Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - msg: ReferenceError: Can't find variable: ychoices
+[ERROR - 2014-05-19T00:05:47.460Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - stack:
+  (anonymous function) (http://www.tennisabstract.com/cgi-bin/player.cgi?p=XavierMalisse&f=ACareerqqo1:229)
+[ERROR - 2014-05-19T00:07:11.159Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - msg: ReferenceError: Can't find variable: ychoices
+[ERROR - 2014-05-19T00:07:11.159Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - stack:
+  (anonymous function) (http://www.tennisabstract.com/cgi-bin/player.cgi?p=FerranVenturaMartell&f=ACareerqqo1:229)
+[INFO  - 2014-05-19T00:08:44.854Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[ERROR - 2014-05-19T00:11:20.251Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - msg: ReferenceError: Can't find variable: ychoices
+[ERROR - 2014-05-19T00:11:20.251Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - stack:
+  (anonymous function) (http://www.tennisabstract.com/cgi-bin/player.cgi?p=AndreaSerra&f=ACareerqqo1:229)
+[INFO  - 2014-05-19T00:13:44.855Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T00:18:44.856Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[ERROR - 2014-05-19T00:22:38.701Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - msg: TypeError: 'undefined' is not a function (evaluating '$.widget')
+[ERROR - 2014-05-19T00:22:38.701Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - stack:
+  (anonymous function) (http://www.minorleaguesplits.com/tennisabstract/jquery.ui.autocomplete.js?_=1400458958229:423)
+  (anonymous function) (http://www.minorleaguesplits.com/tennisabstract/jquery.ui.autocomplete.js?_=1400458958229:438)
+[INFO  - 2014-05-19T00:23:44.875Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[ERROR - 2014-05-19T00:28:11.950Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - msg: ReferenceError: Can't find variable: ychoices
+[ERROR - 2014-05-19T00:28:11.950Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - stack:
+  (anonymous function) (http://www.tennisabstract.com/cgi-bin/player.cgi?p=GabrielFrias&f=ACareerqqo1:229)
+[INFO  - 2014-05-19T00:28:44.878Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T00:33:44.858Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T00:38:44.860Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T00:43:44.861Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T00:48:44.861Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T00:53:44.861Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[ERROR - 2014-05-19T00:53:58.407Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - msg: TypeError: 'undefined' is not a function (evaluating '$.widget')
+[ERROR - 2014-05-19T00:53:58.408Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - stack:
+  (anonymous function) (http://www.minorleaguesplits.com/tennisabstract/jquery.ui.autocomplete.js?_=1400460838317:423)
+  (anonymous function) (http://www.minorleaguesplits.com/tennisabstract/jquery.ui.autocomplete.js?_=1400460838317:438)
+[ERROR - 2014-05-19T00:56:46.211Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - msg: TypeError: 'undefined' is not a function (evaluating '$.widget')
+[ERROR - 2014-05-19T00:56:46.211Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - stack:
+  (anonymous function) (http://www.minorleaguesplits.com/tennisabstract/jquery.ui.autocomplete.js?_=1400461006043:423)
+  (anonymous function) (http://www.minorleaguesplits.com/tennisabstract/jquery.ui.autocomplete.js?_=1400461006043:438)
+[INFO  - 2014-05-19T00:58:44.861Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[ERROR - 2014-05-19T01:02:16.705Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - msg: ReferenceError: Can't find variable: ychoices
+[ERROR - 2014-05-19T01:02:16.710Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - stack:
+  (anonymous function) (http://www.tennisabstract.com/cgi-bin/player.cgi?p=AlexanderRojas&f=ACareerqqo1:229)
+[INFO  - 2014-05-19T01:03:44.861Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T01:08:44.861Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T01:13:44.862Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T01:18:44.862Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[ERROR - 2014-05-19T01:19:03.098Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - msg: TypeError: 'undefined' is not a function (evaluating '$.widget')
+[ERROR - 2014-05-19T01:19:03.098Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - stack:
+  (anonymous function) (http://www.minorleaguesplits.com/tennisabstract/jquery.ui.autocomplete.js?_=1400462342924:423)
+  (anonymous function) (http://www.minorleaguesplits.com/tennisabstract/jquery.ui.autocomplete.js?_=1400462342924:438)
+[ERROR - 2014-05-19T01:19:57.137Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - msg: TypeError: 'undefined' is not a function (evaluating '$.widget')
+[ERROR - 2014-05-19T01:19:57.137Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - stack:
+  (anonymous function) (http://www.minorleaguesplits.com/tennisabstract/jquery.ui.autocomplete.js?_=1400462396559:423)
+  (anonymous function) (http://www.minorleaguesplits.com/tennisabstract/jquery.ui.autocomplete.js?_=1400462396559:438)
+[INFO  - 2014-05-19T01:23:44.862Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T01:28:44.882Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[ERROR - 2014-05-19T01:29:42.402Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - msg: ReferenceError: Can't find variable: ychoices
+[ERROR - 2014-05-19T01:29:42.402Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - stack:
+  (anonymous function) (http://www.tennisabstract.com/cgi-bin/player.cgi?p=JordiVilaVila&f=ACareerqqo1:229)
+[ERROR - 2014-05-19T01:30:42.318Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - msg: TypeError: 'undefined' is not a function (evaluating '$.widget')
+[ERROR - 2014-05-19T01:30:42.318Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - stack:
+  (anonymous function) (http://www.minorleaguesplits.com/tennisabstract/jquery.ui.autocomplete.js?_=1400463042149:423)
+  (anonymous function) (http://www.minorleaguesplits.com/tennisabstract/jquery.ui.autocomplete.js?_=1400463042149:438)
+[INFO  - 2014-05-19T01:33:44.862Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[ERROR - 2014-05-19T01:34:28.865Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - msg: TypeError: 'undefined' is not a function (evaluating '$.widget')
+[ERROR - 2014-05-19T01:34:28.865Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - stack:
+  (anonymous function) (http://www.minorleaguesplits.com/tennisabstract/jquery.ui.autocomplete.js?_=1400463268702:423)
+  (anonymous function) (http://www.minorleaguesplits.com/tennisabstract/jquery.ui.autocomplete.js?_=1400463268702:438)
+[ERROR - 2014-05-19T01:37:49.016Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - msg: ReferenceError: Can't find variable: ychoices
+[ERROR - 2014-05-19T01:37:49.016Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - stack:
+  (anonymous function) (http://www.tennisabstract.com/cgi-bin/player.cgi?p=FrancescLleal&f=ACareerqqo1:229)
+[INFO  - 2014-05-19T01:38:44.862Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T01:43:44.862Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T01:48:44.862Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T02:48:42.452Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T02:53:43.339Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T02:58:43.339Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T03:03:43.340Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T03:08:43.341Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T03:13:43.341Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T03:18:43.343Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T03:23:43.344Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T03:28:43.344Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T03:33:43.344Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T03:38:43.344Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T03:43:43.345Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T03:48:43.345Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T03:53:43.345Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T03:58:43.346Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T04:03:43.346Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T04:08:43.347Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T04:13:43.348Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T04:18:43.348Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T04:23:43.348Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T04:28:43.348Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T04:33:43.348Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T04:38:43.348Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T04:43:43.349Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T04:48:43.349Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T04:53:43.350Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T04:58:43.351Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T05:03:43.351Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T05:08:43.353Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T05:13:43.353Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T05:18:43.354Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T05:23:43.354Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T05:28:43.354Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T05:33:43.354Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T05:38:43.354Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T05:43:43.356Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T05:48:43.356Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T05:53:43.356Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T05:58:43.357Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T06:03:43.358Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T06:08:43.359Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T06:13:43.359Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T06:18:43.359Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T06:23:43.359Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T06:28:43.359Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T06:33:43.361Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T06:38:43.362Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T06:43:43.364Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T06:48:43.364Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T06:53:43.366Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T06:58:43.367Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T07:03:43.367Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T07:08:43.367Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T07:13:43.367Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T07:18:43.369Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T07:23:43.369Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T07:28:43.370Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T07:33:43.371Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T07:38:43.372Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T07:43:43.372Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T07:48:43.372Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T07:53:43.372Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T07:58:43.373Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T08:03:43.373Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T08:08:43.373Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T08:13:43.373Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T08:18:43.375Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T08:23:43.375Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T08:28:43.375Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T08:33:43.376Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T08:38:43.376Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T08:43:43.378Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T08:48:43.378Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T08:53:43.378Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T08:58:43.378Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T09:03:43.378Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T09:08:43.378Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T09:13:43.379Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T09:18:43.379Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T09:23:43.382Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T09:28:43.382Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T09:33:43.382Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T09:38:43.382Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T09:43:43.382Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T09:48:43.384Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T09:53:43.385Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T09:58:43.385Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T10:03:43.386Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T10:08:43.386Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T10:13:43.387Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T10:18:43.389Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T10:23:43.390Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T10:28:43.391Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T10:33:43.391Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T10:38:43.394Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T10:43:43.395Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T10:48:43.396Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T10:53:43.396Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T10:58:43.397Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T11:03:43.397Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T11:08:43.397Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T11:13:43.398Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T11:18:43.398Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T11:23:43.400Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T11:28:43.400Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T11:33:43.401Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T11:38:43.401Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T11:43:43.402Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T11:48:43.403Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T11:53:43.403Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T11:58:43.403Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T12:03:43.405Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T12:08:43.405Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T12:13:43.405Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T12:18:43.405Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T12:23:43.405Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T12:28:43.405Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T12:33:43.405Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T12:38:43.405Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T12:43:43.407Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T12:48:43.407Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T12:53:43.407Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T12:58:43.408Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T13:03:43.408Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T13:08:43.409Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T13:13:43.410Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T13:18:43.410Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T13:23:43.410Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T13:28:43.410Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T13:33:43.410Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T13:38:43.410Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T13:43:43.410Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T13:48:43.410Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T13:53:43.411Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T13:58:43.411Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T14:03:43.411Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T14:08:43.411Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T14:13:43.411Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T14:18:43.411Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T14:23:43.412Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T14:28:43.412Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T14:33:43.414Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T14:38:43.414Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T14:43:43.414Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T14:48:43.414Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T14:53:43.416Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T14:58:43.416Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T15:03:43.416Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T15:08:43.416Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T15:13:43.417Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T15:18:43.417Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T15:23:43.417Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T15:28:43.417Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T15:33:43.418Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T15:38:43.419Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T15:43:43.419Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T15:48:43.421Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T15:53:43.422Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T15:58:43.423Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T16:50:22.035Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[ERROR - 2014-05-19T16:51:33.800Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - msg: ReferenceError: Can't find variable: ychoices
+[ERROR - 2014-05-19T16:51:33.800Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - stack:
+  (anonymous function) (http://www.tennisabstract.com/cgi-bin/player.cgi?p=MaximoGonzalez&f=ACareerqqo1:229)
+[ERROR - 2014-05-19T16:54:01.748Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - msg: TypeError: 'undefined' is not a function (evaluating '$.widget')
+[ERROR - 2014-05-19T16:54:01.748Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - stack:
+  (anonymous function) (http://www.minorleaguesplits.com/tennisabstract/jquery.ui.autocomplete.js?_=1400518441574:423)
+  (anonymous function) (http://www.minorleaguesplits.com/tennisabstract/jquery.ui.autocomplete.js?_=1400518441574:438)
+[INFO  - 2014-05-19T16:55:22.035Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[ERROR - 2014-05-19T16:56:31.499Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - msg: ReferenceError: Can't find variable: ychoices
+[ERROR - 2014-05-19T16:56:31.499Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - stack:
+  (anonymous function) (http://www.tennisabstract.com/cgi-bin/player.cgi?p=SebastianUriarte&f=ACareerqqo1:229)
+[ERROR - 2014-05-19T16:56:49.745Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - msg: ReferenceError: Can't find variable: ychoices
+[ERROR - 2014-05-19T16:56:49.745Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - stack:
+  (anonymous function) (http://www.tennisabstract.com/cgi-bin/player.cgi?p=AlejandroPrada&f=ACareerqqo1:229)
+[ERROR - 2014-05-19T17:00:21.167Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - msg: TypeError: 'undefined' is not a function (evaluating '$.widget')
+[ERROR - 2014-05-19T17:00:21.167Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - stack:
+  (anonymous function) (http://www.minorleaguesplits.com/tennisabstract/jquery.ui.autocomplete.js?_=1400518820882:423)
+  (anonymous function) (http://www.minorleaguesplits.com/tennisabstract/jquery.ui.autocomplete.js?_=1400518820882:438)
+[INFO  - 2014-05-19T17:00:22.035Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[ERROR - 2014-05-19T17:01:47.308Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - msg: ReferenceError: Can't find variable: ychoices
+[ERROR - 2014-05-19T17:01:47.308Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - stack:
+  (anonymous function) (http://www.tennisabstract.com/cgi-bin/player.cgi?p=BertVanDriessen&f=ACareerqqo1:229)
+[ERROR - 2014-05-19T17:01:49.220Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - msg: ReferenceError: Can't find variable: morematchmx
+[ERROR - 2014-05-19T17:01:49.220Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - stack:
+  (anonymous function) (http://www.tennisabstract.com/cgi-bin/player.cgi?p=AlexanderSatschko&f=ACareerqqo1:2091)
+  (anonymous function) (http://www.minorleaguesplits.com/tennisabstract/jquery-1.7.1-min.js:2)
+  (anonymous function) (http://www.minorleaguesplits.com/tennisabstract/jquery-1.7.1-min.js:2)
+  (anonymous function) (http://www.minorleaguesplits.com/tennisabstract/jquery-1.7.1-min.js:2)
+  (anonymous function) (http://www.minorleaguesplits.com/tennisabstract/jquery-1.7.1-min.js:2)
+[INFO  - 2014-05-19T17:05:22.035Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[ERROR - 2014-05-19T17:07:19.675Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - msg: TypeError: 'undefined' is not a function (evaluating '$.widget')
+[ERROR - 2014-05-19T17:07:19.676Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - stack:
+  (anonymous function) (http://www.minorleaguesplits.com/tennisabstract/jquery.ui.autocomplete.js?_=1400519239508:423)
+  (anonymous function) (http://www.minorleaguesplits.com/tennisabstract/jquery.ui.autocomplete.js?_=1400519239508:438)
+[ERROR - 2014-05-19T17:08:27.451Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - msg: TypeError: 'undefined' is not a function (evaluating '$.widget')
+[ERROR - 2014-05-19T17:08:27.451Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - stack:
+  (anonymous function) (http://www.minorleaguesplits.com/tennisabstract/jquery.ui.autocomplete.js?_=1400519307355:423)
+  (anonymous function) (http://www.minorleaguesplits.com/tennisabstract/jquery.ui.autocomplete.js?_=1400519307355:438)
+[INFO  - 2014-05-19T17:10:22.036Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[ERROR - 2014-05-19T17:11:16.200Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - msg: ReferenceError: Can't find variable: ychoices
+[ERROR - 2014-05-19T17:11:16.200Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - stack:
+  (anonymous function) (http://www.tennisabstract.com/cgi-bin/player.cgi?p=RemcoPondman&f=ACareerqqo1:229)
+[ERROR - 2014-05-19T17:11:52.305Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - msg: ReferenceError: Can't find variable: ychoices
+[ERROR - 2014-05-19T17:11:52.306Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - stack:
+  (anonymous function) (http://www.tennisabstract.com/cgi-bin/player.cgi?p=TomasJanci&f=ACareerqqo1:229)
+[ERROR - 2014-05-19T17:13:43.791Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - msg: ReferenceError: Can't find variable: ychoices
+[ERROR - 2014-05-19T17:13:43.791Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - stack:
+  (anonymous function) (http://www.tennisabstract.com/cgi-bin/player.cgi?p=JeanSegodo&f=ACareerqqo1:229)
+[ERROR - 2014-05-19T17:13:51.698Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - msg: TypeError: 'undefined' is not a function (evaluating '$.widget')
+[ERROR - 2014-05-19T17:13:51.698Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - stack:
+  (anonymous function) (http://www.minorleaguesplits.com/tennisabstract/jquery.ui.autocomplete.js?_=1400519631603:423)
+  (anonymous function) (http://www.minorleaguesplits.com/tennisabstract/jquery.ui.autocomplete.js?_=1400519631603:438)
+[INFO  - 2014-05-19T17:15:22.036Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[ERROR - 2014-05-19T17:15:45.235Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - msg: ReferenceError: Can't find variable: morematchmx
+[ERROR - 2014-05-19T17:15:45.235Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - stack:
+  (anonymous function) (http://www.tennisabstract.com/cgi-bin/player.cgi?p=GlebAlekseenko&f=ACareerqqo1:2091)
+  (anonymous function) (http://www.minorleaguesplits.com/tennisabstract/jquery-1.7.1-min.js:2)
+  (anonymous function) (http://www.minorleaguesplits.com/tennisabstract/jquery-1.7.1-min.js:2)
+  (anonymous function) (http://www.minorleaguesplits.com/tennisabstract/jquery-1.7.1-min.js:2)
+  (anonymous function) (http://www.minorleaguesplits.com/tennisabstract/jquery-1.7.1-min.js:2)
+[ERROR - 2014-05-19T17:17:43.147Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - msg: TypeError: 'undefined' is not a function (evaluating '$.widget')
+[ERROR - 2014-05-19T17:17:43.147Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - stack:
+  (anonymous function) (http://www.minorleaguesplits.com/tennisabstract/jquery.ui.autocomplete.js?_=1400519863062:423)
+  (anonymous function) (http://www.minorleaguesplits.com/tennisabstract/jquery.ui.autocomplete.js?_=1400519863062:438)
+[INFO  - 2014-05-19T17:20:22.036Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[ERROR - 2014-05-19T17:22:33.938Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - msg: TypeError: 'undefined' is not a function (evaluating '$.widget')
+[ERROR - 2014-05-19T17:22:33.938Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - stack:
+  (anonymous function) (http://www.minorleaguesplits.com/tennisabstract/jquery.ui.autocomplete.js?_=1400520153770:423)
+  (anonymous function) (http://www.minorleaguesplits.com/tennisabstract/jquery.ui.autocomplete.js?_=1400520153770:438)
+[INFO  - 2014-05-19T17:25:22.036Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[ERROR - 2014-05-19T17:26:09.321Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - msg: ReferenceError: Can't find variable: ychoices
+[ERROR - 2014-05-19T17:26:09.321Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - stack:
+  (anonymous function) (http://www.tennisabstract.com/cgi-bin/player.cgi?p=FranckFevrier&f=ACareerqqo1:229)
+[ERROR - 2014-05-19T17:26:20.826Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - msg: TypeError: 'undefined' is not a function (evaluating '$.widget')
+[ERROR - 2014-05-19T17:26:20.826Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - stack:
+  (anonymous function) (http://www.minorleaguesplits.com/tennisabstract/jquery.ui.autocomplete.js?_=1400520380669:423)
+  (anonymous function) (http://www.minorleaguesplits.com/tennisabstract/jquery.ui.autocomplete.js?_=1400520380669:438)
+[INFO  - 2014-05-19T17:30:22.036Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[ERROR - 2014-05-19T17:33:50.462Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - msg: TypeError: 'undefined' is not a function (evaluating '$.widget')
+[ERROR - 2014-05-19T17:33:50.463Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - stack:
+  (anonymous function) (http://www.minorleaguesplits.com/tennisabstract/jquery.ui.autocomplete.js?_=1400520830294:423)
+  (anonymous function) (http://www.minorleaguesplits.com/tennisabstract/jquery.ui.autocomplete.js?_=1400520830294:438)
+[INFO  - 2014-05-19T17:35:22.036Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[ERROR - 2014-05-19T17:40:05.738Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - msg: TypeError: 'undefined' is not a function (evaluating '$.widget')
+[ERROR - 2014-05-19T17:40:05.738Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - stack:
+  (anonymous function) (http://www.minorleaguesplits.com/tennisabstract/jquery.ui.autocomplete.js?_=1400521205656:423)
+  (anonymous function) (http://www.minorleaguesplits.com/tennisabstract/jquery.ui.autocomplete.js?_=1400521205656:438)
+[INFO  - 2014-05-19T17:40:22.035Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[ERROR - 2014-05-19T17:41:51.946Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - msg: TypeError: 'undefined' is not a function (evaluating '$.widget')
+[ERROR - 2014-05-19T17:41:51.946Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - stack:
+  (anonymous function) (http://www.minorleaguesplits.com/tennisabstract/jquery.ui.autocomplete.js?_=1400521311785:423)
+  (anonymous function) (http://www.minorleaguesplits.com/tennisabstract/jquery.ui.autocomplete.js?_=1400521311785:438)
+[INFO  - 2014-05-19T17:45:22.036Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[ERROR - 2014-05-19T17:46:18.248Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - msg: TypeError: 'undefined' is not a function (evaluating '$.widget')
+[ERROR - 2014-05-19T17:46:18.248Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - stack:
+  (anonymous function) (http://www.minorleaguesplits.com/tennisabstract/jquery.ui.autocomplete.js?_=1400521578087:423)
+  (anonymous function) (http://www.minorleaguesplits.com/tennisabstract/jquery.ui.autocomplete.js?_=1400521578087:438)
+[INFO  - 2014-05-19T17:50:22.036Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[ERROR - 2014-05-19T17:53:19.174Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - msg: TypeError: 'undefined' is not a function (evaluating '$.widget')
+[ERROR - 2014-05-19T17:53:19.174Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - stack:
+  (anonymous function) (http://www.minorleaguesplits.com/tennisabstract/jquery.ui.autocomplete.js?_=1400521999014:423)
+  (anonymous function) (http://www.minorleaguesplits.com/tennisabstract/jquery.ui.autocomplete.js?_=1400521999014:438)
+[ERROR - 2014-05-19T17:55:04.791Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - msg: ReferenceError: Can't find variable: ychoices
+[ERROR - 2014-05-19T17:55:04.791Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - stack:
+  (anonymous function) (http://www.tennisabstract.com/cgi-bin/player.cgi?p=GiovanniBottai&f=ACareerqqo1:229)
+[ERROR - 2014-05-19T17:55:12.855Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - msg: ReferenceError: Can't find variable: morematchmx
+[ERROR - 2014-05-19T17:55:12.855Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - stack:
+  (anonymous function) (http://www.tennisabstract.com/cgi-bin/player.cgi?p=JuhoPaukku&f=ACareerqqo1:2091)
+  (anonymous function) (http://www.minorleaguesplits.com/tennisabstract/jquery-1.7.1-min.js:2)
+  (anonymous function) (http://www.minorleaguesplits.com/tennisabstract/jquery-1.7.1-min.js:2)
+  (anonymous function) (http://www.minorleaguesplits.com/tennisabstract/jquery-1.7.1-min.js:2)
+  (anonymous function) (http://www.minorleaguesplits.com/tennisabstract/jquery-1.7.1-min.js:2)
+[INFO  - 2014-05-19T17:55:22.036Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[ERROR - 2014-05-19T18:00:18.455Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - msg: TypeError: 'undefined' is not a function (evaluating '$.widget')
+[ERROR - 2014-05-19T18:00:18.456Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - stack:
+  (anonymous function) (http://www.minorleaguesplits.com/tennisabstract/jquery.ui.autocomplete.js?_=1400522418215:423)
+  (anonymous function) (http://www.minorleaguesplits.com/tennisabstract/jquery.ui.autocomplete.js?_=1400522418215:438)
+[INFO  - 2014-05-19T18:00:22.036Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[ERROR - 2014-05-19T18:01:57.006Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - msg: TypeError: 'undefined' is not a function (evaluating '$.widget')
+[ERROR - 2014-05-19T18:01:57.006Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - stack:
+  (anonymous function) (http://www.minorleaguesplits.com/tennisabstract/jquery.ui.autocomplete.js?_=1400522516918:423)
+  (anonymous function) (http://www.minorleaguesplits.com/tennisabstract/jquery.ui.autocomplete.js?_=1400522516918:438)
+[ERROR - 2014-05-19T18:04:29.832Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - msg: TypeError: 'undefined' is not a function (evaluating '$.widget')
+[ERROR - 2014-05-19T18:04:29.832Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - stack:
+  (anonymous function) (http://www.minorleaguesplits.com/tennisabstract/jquery.ui.autocomplete.js?_=1400522669624:423)
+  (anonymous function) (http://www.minorleaguesplits.com/tennisabstract/jquery.ui.autocomplete.js?_=1400522669624:438)
+[INFO  - 2014-05-19T18:05:22.036Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T18:10:22.036Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[ERROR - 2014-05-19T18:10:45.675Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - msg: TypeError: 'undefined' is not a function (evaluating '$.widget')
+[ERROR - 2014-05-19T18:10:45.675Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - stack:
+  (anonymous function) (http://www.minorleaguesplits.com/tennisabstract/jquery.ui.autocomplete.js?_=1400523045439:423)
+  (anonymous function) (http://www.minorleaguesplits.com/tennisabstract/jquery.ui.autocomplete.js?_=1400523045439:438)
+[ERROR - 2014-05-19T18:14:08.406Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - msg: TypeError: 'undefined' is not a function (evaluating '$.widget')
+[ERROR - 2014-05-19T18:14:08.406Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - stack:
+  (anonymous function) (http://www.minorleaguesplits.com/tennisabstract/jquery.ui.autocomplete.js?_=1400523248241:423)
+  (anonymous function) (http://www.minorleaguesplits.com/tennisabstract/jquery.ui.autocomplete.js?_=1400523248241:438)
+[INFO  - 2014-05-19T18:15:22.037Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T18:20:22.037Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[ERROR - 2014-05-19T18:22:52.276Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - msg: TypeError: 'undefined' is not a function (evaluating '$.widget')
+[ERROR - 2014-05-19T18:22:52.276Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - stack:
+  (anonymous function) (http://www.minorleaguesplits.com/tennisabstract/jquery.ui.autocomplete.js?_=1400523772094:423)
+  (anonymous function) (http://www.minorleaguesplits.com/tennisabstract/jquery.ui.autocomplete.js?_=1400523772094:438)
+[INFO  - 2014-05-19T18:25:22.039Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T18:30:22.039Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[ERROR - 2014-05-19T18:30:57.677Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - msg: TypeError: 'undefined' is not a function (evaluating '$.widget')
+[ERROR - 2014-05-19T18:30:57.677Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - stack:
+  (anonymous function) (http://www.minorleaguesplits.com/tennisabstract/jquery.ui.autocomplete.js?_=1400524257522:423)
+  (anonymous function) (http://www.minorleaguesplits.com/tennisabstract/jquery.ui.autocomplete.js?_=1400524257522:438)
+[INFO  - 2014-05-19T18:35:22.040Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[ERROR - 2014-05-19T18:39:52.493Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - msg: TypeError: 'undefined' is not a function (evaluating '$.widget')
+[ERROR - 2014-05-19T18:39:52.493Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - stack:
+  (anonymous function) (http://www.minorleaguesplits.com/tennisabstract/jquery.ui.autocomplete.js?_=1400524792236:423)
+  (anonymous function) (http://www.minorleaguesplits.com/tennisabstract/jquery.ui.autocomplete.js?_=1400524792236:438)
+[INFO  - 2014-05-19T18:40:22.041Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[ERROR - 2014-05-19T18:43:26.456Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - msg: TypeError: 'undefined' is not a function (evaluating '$.widget')
+[ERROR - 2014-05-19T18:43:26.456Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - stack:
+  (anonymous function) (http://www.minorleaguesplits.com/tennisabstract/jquery.ui.autocomplete.js?_=1400525006301:423)
+  (anonymous function) (http://www.minorleaguesplits.com/tennisabstract/jquery.ui.autocomplete.js?_=1400525006301:438)
+[ERROR - 2014-05-19T18:45:19.102Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - msg: SyntaxError: Parse error
+[ERROR - 2014-05-19T18:45:19.102Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - stack:
+
+[ERROR - 2014-05-19T18:45:19.231Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - msg: ReferenceError: Can't find variable: ychoices
+[ERROR - 2014-05-19T18:45:19.231Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - stack:
+  (anonymous function) (http://www.tennisabstract.com/cgi-bin/player.cgi?p=JanMinar&f=ACareerqqo1:229)
+[INFO  - 2014-05-19T18:45:22.043Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[ERROR - 2014-05-19T18:50:13.075Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - msg: TypeError: 'undefined' is not a function (evaluating '$.widget')
+[ERROR - 2014-05-19T18:50:13.075Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - stack:
+  (anonymous function) (http://www.minorleaguesplits.com/tennisabstract/jquery.ui.autocomplete.js?_=1400525412991:423)
+  (anonymous function) (http://www.minorleaguesplits.com/tennisabstract/jquery.ui.autocomplete.js?_=1400525412991:438)
+[INFO  - 2014-05-19T18:50:22.043Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[ERROR - 2014-05-19T18:52:50.612Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - msg: TypeError: 'undefined' is not a function (evaluating '$.widget')
+[ERROR - 2014-05-19T18:52:50.612Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - stack:
+  (anonymous function) (http://www.minorleaguesplits.com/tennisabstract/jquery.ui.autocomplete.js?_=1400525570467:423)
+  (anonymous function) (http://www.minorleaguesplits.com/tennisabstract/jquery.ui.autocomplete.js?_=1400525570467:438)
+[INFO  - 2014-05-19T18:55:22.043Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[ERROR - 2014-05-19T18:58:32.838Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - msg: TypeError: 'undefined' is not a function (evaluating '$.widget')
+[ERROR - 2014-05-19T18:58:32.844Z] Session [2b817550-dedd-11e3-a4bf-b9c5d2ce7806] - page.onError - stack:
+  (anonymous function) (http://www.minorleaguesplits.com/tennisabstract/jquery.ui.autocomplete.js?_=1400525912653:423)
+  (anonymous function) (http://www.minorleaguesplits.com/tennisabstract/jquery.ui.autocomplete.js?_=1400525912653:438)
+[INFO  - 2014-05-19T19:00:22.044Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T19:05:22.061Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T19:23:22.090Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T19:28:22.091Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
+[INFO  - 2014-05-19T19:33:22.092Z] SessionManagerReqHand - _cleanupWindowlessSessions - Asynchronous Sessions clean-up phase starting NOW
