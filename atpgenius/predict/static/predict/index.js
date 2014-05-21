@@ -81,7 +81,10 @@ $(document).ready(function() {
       },
       success: function(data) {
         $("#predicted-winner").html(data['winner']);
-        $("#predicted-confidence").html(data['confidence']);
+        $("#predicted-confidence").html(data['margin']);
+        $(".fv").each(function(i) {
+          $(this).html(data['feature-vector'][i]);
+        });
         $("#prediction-loading").hide();
         $("#prediction-results").show();
       }

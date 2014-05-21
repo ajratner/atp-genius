@@ -55,15 +55,17 @@ def baseline2_sub(pid=None):
 # Model #1- vectorize single-match features only, run through simple ML model
 N_FEATURES = 7
 LAST_N_MATCHES = 5
+UNK_RANK = 1000
 
 
 # core feature assembly function
 # >> vs_p2  =  list of win/losses ~ [1, 0]
 # >> lnm = last_n_matches  =  list of (win/loss ~ [1,0], rank-at-time)
 def get_match_features(p1_rank, p2_rank, t_round, surface, vs_p2, lnm):
-  f = np.zeros(len(N_FEATURES))
+  f = np.zeros(N_FEATURES)
 
   # feature 1 - is player higher rank?
+  # NOTE >> switch this to lower-ranked... this way is confusing!!!
   f[0] = 1 if p1_rank > p2_rank else -1
   
   # feature 2 - rank difference
@@ -82,7 +84,8 @@ def get_match_features(p1_rank, p2_rank, t_round, surface, vs_p2, lnm):
   # NOTE: difficulty of tournament
 
   # feature 5 - vs. opponent history
-  f[4] = float(sum(vs_p2)) / len(vs_p2) if len(vs_p2) > 2 else 0.5
+  # f[4] = float(sum(vs_p2)) / len(vs_p2) if len(vs_p2) > 2 else 0.5
+  f[4] = vs_p2
 
   # feature 6 - winning streak (consecutive previous wins)
   streak = 0
@@ -93,96 +96,119 @@ def get_match_features(p1_rank, p2_rank, t_round, surface, vs_p2, lnm):
   f[5] = float(streak)
 
   # feature 7 - 5-game moving average change in rank
-  f[6] = np.mean([lnm[i][1] - lnm[i-1][1] for i in range(1, len(lnm))])
+  f[6] = np.mean([lnm[i][1] - lnm[i-1][1] for i in range(1, len(lnm)) if lnm[i][1] and lnm[i-1][1]])
   
   return f
 
 
 # vectorize a single (eg unseen) match, based only on certain provided info
-def vectorize_new_match(p1, p2, surface, t_round):
-  session = mysql_session()
+def vectorize_match(p1_name, p2_name, p1_rank, p2_rank, surface, t_round, session=None):
+  session = mysql_session() if not session else session
 
   # get p1,p2 joint match history
-  p1w=session.query(Match).filter(and_(Match.p1_name==p1.name, Match.p2_name==p2.name)).count()
-  p2w=session.query(Match).filter(and_(Match.p1_name==p2.name, Match.p2_name==p1.name)).count()
-  vs_p2 = [1]*len(p1w) + [0]*len(p2w)
+  p1w = session.query(Match).filter(and_(Match.p1_name == p1_name, Match.p2_name == p2_name)).count()
+  p2w = session.query(Match).filter(and_(Match.p1_name == p2_name, Match.p2_name == p1_name)).count()
+  vs_p2 = float(p1w) / (p1w + p2w) if p1w + p2w > 2 else 0.5
 
-  # get last n matches
-  last_n = session.query(Match).filter(or_(Match.p1_name==p1.name, Match.p2_name==p1.name)).order_by(desc(Match.date))[:LAST_N_MATCHES]
-  lnm = [(1 if m.p1_name==p1.name else 0, m.p1_rank) for m in last_n]
+  # get last n matches for p1
+  # NOTE: make this p1/p2 symmetric by getting this for p2 also!
+  last_n = session.query(Match).filter(or_(Match.p1_name == p1_name, Match.p2_name == p1_name)).order_by(desc(Match.date))[:LAST_N_MATCHES]
+  lnm = []
+  for m in last_n:
+    if m.p1_name == p1_name:
+      lnm.append((1, m.p1_rank))
+    else:
+      lnm.append((0, m.p2_rank))
 
   # get features
-  f = get_match_features(p1.rank, p2.rank, t_round, surface, vs_p2, lnm)
+  f = get_match_features(p1_rank, p2_rank, t_round, surface, vs_p2, lnm)
   return f
 
-  
 
+# NOTE NOTE
+# --> need to proceed serially through ALL the matches keeping everything in queue
+# --> need custom function...
 
-  """  
-  if match.p1_id == pid:
-    vopp = vs_opponent[match.p2_name]
-    X[r,4] = float(sum(vopp)) / len(vopp) if len(vopp) > 2 else 0.5
-    vs_opponent[match.p2_name].append(1)
-  else:
-    vopp = vs_opponent[match.p1_name]
-    X[r,4] = float(sum(vopp)) / len(vopp) if len(vopp) > 2 else 0.5
-    vs_opponent[match.p1_name].append(0)
-
-  # feature 6 - winning streak (consecutive previous wins)
-  streak = 0; b = 1
-  while r - b > 0 and Y[r-b] == 1:
-    streak += 1
-    b += 1
-  X[r,5] = float(streak)
-
-  # feature 7 - 5-game moving average change in rank
-  if r > 5:
-    X[r,6] = np.mean([rank_at_time[r-i] - rank_at_time[r-i-1] for i in range(1,5)])
-  else:
-    X[r,6] = 0.0
-  rank_at_time[r] = match.p1_rank if match.p1_id == pid else match.p2_rank
-  """
-  
-
-
-# wrapper for vectorizing all matches
-def vectorize_matches():
+# vectorize all matches for training / testing
+# >> proceed serially through matches by date for speed
+def vectorize_data():
   session = mysql_session()
-  pids = [p.id for p in session.query(Player.id).all()]
-  xs = []
-  ys = []
-  for pid in pids:
-    x,y = vectorize_player_matches(pid)
-    if x is not None:
-      xs.append(x)
-      ys.append(y)
-  X = np.concatenate(xs, axis=0)
-  Y = np.concatenate(ys, axis=0)
+  
+  # last N matches as (win/loss, rank at time)
+  lnm = defaultdict(list)
+  
+  # indexed by e.g. 'Bobby Reynolds::Rafael Nadal' w/ alphabetical order
+  vs_win = defaultdict(int)
+  vs_count = defaultdict(int)
 
-  # normalize features
-  for c in range(N_FEATURES):
-    max_abs = max([abs(x) for x in X[:,c]])
-    X[:,c] /= max_abs
+  # go through all the matches by date
+  X = []
+  Y = []
+  for i,m in enumerate(session.query(Match).order_by(Match.date).all()):
 
-  # convert X to csr-matrix & return
-  return csr_matrix(X), Y
+    if i%100 == 0:
+      print '\t%s' % (i,)
 
-# vectorize all of a certain player's matches
-def vectorize_player_matches(pid):
-  matches = [m for m in get_matches(pid) if m.p1_rank and m.p2_rank]
-  if len(matches) == 0:
-    return None, None
-  matches.sort(key = lambda m : m.date)
-  vs_opponent = defaultdict(list)
-  rank_at_time = np.zeros(len(matches))
-  X = np.zeros((len(matches), N_FEATURES))
-  Y = np.zeros(len(matches))
-  for r,match in enumerate(matches):
-    pp = 1 if match.p1_id == pid else -1
-    Y[r] = pp
+    # vectorize based on current data
+    if m.date and m.p1_rank and m.p2_rank:
+      vs_key = '::'.join(sorted([m.p1_name, m.p2_name]))
+      vs_p2 = vs_win[vs_key] / float(vs_count[vs_key])
+
+      # >> we want to predict whether p1 wins or not.  Since in the data, p1 is by definition
+      # >> the winner, we must randomize the ordering here
+      if random.random() > 0.5:
+        vs_p2 = vs_p2 if ord(m.p1_name[0]) < ord(m.p2_name[0]) else 1.0 - vs_p2
+        lnm = lnm[m.p1_name]
+        f = get_match_features(m.p1_rank, m.p2_rank, m.tournament_round, m.surface, vs_p2, lnm)
+        X.append(f)
+        Y.append(1)
+      else:
+        vs_p2 = vs_p2 if ord(m.p1_name[0]) > ord(m.p2_name[0]) else 1.0 - vs_p2
+        lnm = lnm[m.p2_name]
+        f = get_match_features(m.p2_rank, m.p1_rank, m.tournament_round, m.surface, vs_p2, lnm)
+        X.append(f)
+        Y.append(-1)
+
+      # update lnm dict
+      lnm[m.p1_name].append((1, m.p1_rank))
+      if len(lnm[m.p1_name]) > LAST_N_MATCHES:
+        lnm[m.p1_name] = lnm[m.p1_name][1:]
+      lnm[m.p2_name].append((0, m.p2_rank))
+      if len(lnm[m.p2_name]) > LAST_N_MATCHES:
+        lnm[m.p2_name] = lnm[m.p2_name][1:]
+      
+      # update vs dicts
+      vs_win[vs_key] += 1 if ord(m.p1_name[0]) < ord(m.p2_name[0]) else 0
+      vs_count[vs_key] += 1
+
+  return np.array(X), np.array(Y)
 
 
-  return X, Y
+"""
+# vectorize all matches from database
+def vectorize_data():
+  session = mysql_session()
+  player_cache = {}
+  X = []
+  Y = []
+
+  # go through all the matches in the database
+  # NOTE: TO-DO: optimize this with a simple cache?
+  for i,m in enumerate(session.query(Match).all()):
+
+    if i%100 == 0:
+      print '\t%s' % (i,)
+
+    # >> we want to predict whether p1 wins or not.  Since in the data, p1 is by definition
+    # >> the winner, we must randomize the ordering here
+    if random.random() > 0.5:
+      Y.append(1)
+      X.append(vectorize_match(m.p1_name, m.p2_name, m.p1_rank, m.p2_rank, m.surface, m.tournament_round, session=session))
+    else:
+      Y.append(-1)
+      X.append(vectorize_match(m.p2_name, m.p1_name, m.p2_rank, m.p1_rank, m.surface, m.tournament_round, session=session))
+  return np.array(X), np.array(Y)
+"""
 
 
 N_FOLDS = 5
@@ -269,7 +295,7 @@ if __name__ == '__main__':
     t0 = time()
 
     # vectorize all the rows
-    X,Y = vectorize_matches()
+    X,Y = vectorize_data()
     t1 = time(); print 'Vectorized in %s seconds.' % (t1-t0,); t0 = t1
 
     # train the model and print out accuracy

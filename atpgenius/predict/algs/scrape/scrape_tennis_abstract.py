@@ -4,7 +4,7 @@ from models import Player, Match
 from datetime import datetime
 import re
 from util import *
-from sqlalchemy import and_
+from sqlalchemy import or_, and_
 
 
 # general parse modules
@@ -157,7 +157,7 @@ def parse_player_page(source, url):
     urls += m_urls
 
     # check for uniqueness then add to db
-    if len(session.query(Match).filter(and_(Match.p1_name == m.p1_name, Match.p2_name == m.p2_name, Match.date == m.date)).all()) == 0:
+    if session.query(Match).filter(and_(or_(and_(Match.p1_name == m.p1_name, Match.p2_name == m.p2_name), and_(Match.p1_name == m.p2_name, Match.p2_name == m.p1_name)), Match.date == m.date)).count() == 0:
       session.add(m)
     ms.append(m)
 
