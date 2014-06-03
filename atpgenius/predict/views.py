@@ -65,20 +65,37 @@ def get_prediction(request):
 
   # vectorize the match
   print '>> vectorizing match'
-  f = vectorize_match(players[0], players[1], req['surface'], req['tournament-round'], session=session)
+  f = vectorize_match(players[0].name, players[1].name, players[0].atp_rank, players[1].atp_rank, req['surface'], req['tournament-round'], session=session)
 
   # loading classifier
   print '>> loading classifier'
   clf = joblib.load('predict/algs/saved_model/atp_genius_trained.pkl')
 
+  # >> for RF classifier
+  """
   # predict the match winner
   print '>> predicting match winner'
   Y = clf.predict_proba(np.array([f]))
   
   # output the results 
   classes = clf.classes_
+  print Y[0]
+  print classes
   winner = req['p1-name'] if classes[np.argmax(Y[0])] == 1 else req['p2-name']
   margin = 100.0*(max(Y[0]) - min(Y[0]))
+  """
+
+  # >> for Linear SVC classifier
+   
+  # predict the match winner
+  print '>> predicting match winner'
+  Y = clf.predict(np.array([f]))
+
+  # output the results 
+  print clf.coef_
+  winner = req['p1-name'] if Y[0] == 1 else req['p2-name']
+  margin = -1
+  
   data = {
     'winner' : winner,
     'margin' : '%.2f' % (margin,),

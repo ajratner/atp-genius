@@ -53,50 +53,70 @@ def baseline2_sub(pid=None):
 
 
 # Model #1- vectorize single-match features only, run through simple ML model
-N_FEATURES = 7
+N_FEATURES = 8
 LAST_N_MATCHES = 5
 UNK_RANK = 1000
 
 
 # core feature assembly function
+# feature range = [-1,1]
 # >> vs_p2  =  list of win/losses ~ [1, 0]
 # >> lnm = last_n_matches  =  list of (win/loss ~ [1,0], rank-at-time)
-def get_match_features(p1_rank, p2_rank, t_round, surface, vs_p2, lnm):
+def get_match_features(p1_rank, p2_rank, t_round, surface, vs_p2, lnm1, lnm2):
   f = np.zeros(N_FEATURES)
 
-  # feature 1 - is player higher rank?
-  # NOTE >> switch this to lower-ranked... this way is confusing!!!
-  f[0] = 1 if p1_rank > p2_rank else -1
+  # feature 1 - binary, is player higher rank?
+  f[0] = 1.0 if p1_rank < p2_rank else -1.0
   
-  # feature 2 - rank difference
-  f[1] = float(p1_rank - p2_rank)
+  # feature 2 - norm. + capped rank difference
+  f[1] = max(min((p2_rank - p1_rank)/100.0, 1.0), -1.0)
 
-  # feature 3 - tournament round
-  f[2] = float(t_round)
+  # feature 3 - norm. tournament round
+  f[2] = (5 - float(t_round)) / 5.0
 
-  # feature 4 - clay surface?
-  f[3] = 1 if surface == 'Clay' else 0
+  # feature 4 - p1 relative performance on surface
+  # NOTE: to-do
 
-  # NOTE: to-do: hard surface?
+  # NOTE: to-do: difficulty of tournament
 
-  # NOTE: to-do: grass OR carpet surface?
-
-  # NOTE: difficulty of tournament
+  # NOTE: to-do: defending points
+  # >> http://www.pinnaclesports.com/online-betting-articles/03-2014/tennis-ranking-points.aspx
 
   # feature 5 - vs. opponent history
-  # f[4] = float(sum(vs_p2)) / len(vs_p2) if len(vs_p2) > 2 else 0.5
-  f[4] = vs_p2
+  f[3] = 2.0*vs_p2 - 1.0
 
-  # feature 6 - winning streak (consecutive previous wins)
+  # feature 6 - last n matches avg for player 1
+  f[4] = 2.0*((sum([x[0] for x in lnm1]) / float(LAST_N_MATCHES)) - 0.5)
+
+  # feature 6 - last n matches avg for player 2
+  f[5] = 2.0*((sum([x[0] for x in lnm2]) / float(LAST_N_MATCHES)) - 0.5)
+
+  # feature 7 - binary recent change in rank for p1
+  # NOTE: >> change so pos --> rank going down!
+  mov_avg = np.mean([lnm1[i][1] - lnm1[i-1][1] for i in range(1, len(lnm1)) if lnm1[i][1] and lnm1[i-1][1]]) if len(lnm1) > 1 else 0
+  f[6] = 1.0 if mov_avg > 0 else -1.0
+
+  # feature 7 - binary recent change in rank for p2
+  # NOTE: >> change so pos --> rank going down!
+  mov_avg = np.mean([lnm2[i][1] - lnm2[i-1][1] for i in range(1, len(lnm2)) if lnm2[i][1] and lnm2[i-1][1]]) if len(lnm2) > 1 else 0
+  f[7] = 1.0 if mov_avg > 0 else -1.0
+
+  # XXX old features...
+  """
+
+  # feature 6 - norm. + capped winning streak (consecutive previous wins)
+  # XXX nix this?
   streak = 0
-  for m in lnm[::-1]:
-    if m[0] < 1:
+  for i,m in enumerate(lnm[::-1]):
+    if m[0] < 1 or i >= LAST_N_MATCHES:
       break
     streak += 1
-  f[5] = float(streak)
+  f[5] = float(streak) / LAST_N_MATCHES
 
-  # feature 7 - 5-game moving average change in rank
-  f[6] = np.mean([lnm[i][1] - lnm[i-1][1] for i in range(1, len(lnm)) if lnm[i][1] and lnm[i-1][1]])
+  # feature 4 - binary clay surface?
+  f[3] = 1.0 if surface == 'Clay' else -1.0
+
+  """
   
   return f
 
@@ -111,17 +131,24 @@ def vectorize_match(p1_name, p2_name, p1_rank, p2_rank, surface, t_round, sessio
   vs_p2 = float(p1w) / (p1w + p2w) if p1w + p2w > 2 else 0.5
 
   # get last n matches for p1
-  # NOTE: make this p1/p2 symmetric by getting this for p2 also!
   last_n = session.query(Match).filter(or_(Match.p1_name == p1_name, Match.p2_name == p1_name)).order_by(desc(Match.date))[:LAST_N_MATCHES]
-  lnm = []
+  lnm1 = []
   for m in last_n:
     if m.p1_name == p1_name:
-      lnm.append((1, m.p1_rank))
+      lnm1.append((1, m.p1_rank))
     else:
-      lnm.append((0, m.p2_rank))
+      lnm1.append((0, m.p2_rank))
+
+  last_n = session.query(Match).filter(or_(Match.p1_name == p2_name, Match.p2_name == p2_name)).order_by(desc(Match.date))[:LAST_N_MATCHES]
+  lnm2 = []
+  for m in last_n:
+    if m.p1_name == p2_name:
+      lnm2.append((1, m.p1_rank))
+    else:
+      lnm2.append((0, m.p2_rank))
 
   # get features
-  f = get_match_features(p1_rank, p2_rank, t_round, surface, vs_p2, lnm)
+  f = get_match_features(p1_rank, p2_rank, t_round, surface, vs_p2, lnm1, lnm2)
   return f
 
 
@@ -132,6 +159,7 @@ def vectorize_match(p1_name, p2_name, p1_rank, p2_rank, surface, t_round, sessio
 # vectorize all matches for training / testing
 # >> proceed serially through matches by date for speed
 def vectorize_data():
+  err_count = 0
   session = mysql_session()
   
   # last N matches as (win/loss, rank at time)
@@ -146,28 +174,23 @@ def vectorize_data():
   Y = []
   for i,m in enumerate(session.query(Match).order_by(Match.date).all()):
 
-    if i%100 == 0:
-      print '\t%s' % (i,)
-
     # vectorize based on current data
     if m.date and m.p1_rank and m.p2_rank:
       vs_key = '::'.join(sorted([m.p1_name, m.p2_name]))
-      vs_p2 = vs_win[vs_key] / float(vs_count[vs_key])
+      vs_p2 = vs_win[vs_key] / float(vs_count[vs_key]) if vs_count[vs_key] > 0 else 0.5
 
       # >> we want to predict whether p1 wins or not.  Since in the data, p1 is by definition
       # >> the winner, we must randomize the ordering here
       if random.random() > 0.5:
         vs_p2 = vs_p2 if ord(m.p1_name[0]) < ord(m.p2_name[0]) else 1.0 - vs_p2
-        lnm = lnm[m.p1_name]
-        f = get_match_features(m.p1_rank, m.p2_rank, m.tournament_round, m.surface, vs_p2, lnm)
+        f = get_match_features(m.p1_rank, m.p2_rank, m.tournament_round, m.surface, vs_p2, lnm[m.p1_name], lnm[m.p2_name])
         X.append(f)
-        Y.append(1)
+        Y.append(1.0)
       else:
         vs_p2 = vs_p2 if ord(m.p1_name[0]) > ord(m.p2_name[0]) else 1.0 - vs_p2
-        lnm = lnm[m.p2_name]
-        f = get_match_features(m.p2_rank, m.p1_rank, m.tournament_round, m.surface, vs_p2, lnm)
+        f = get_match_features(m.p2_rank, m.p1_rank, m.tournament_round, m.surface, vs_p2, lnm[m.p2_name], lnm[m.p1_name])
         X.append(f)
-        Y.append(-1)
+        Y.append(-1.0)
 
       # update lnm dict
       lnm[m.p1_name].append((1, m.p1_rank))
@@ -181,7 +204,12 @@ def vectorize_data():
       vs_win[vs_key] += 1 if ord(m.p1_name[0]) < ord(m.p2_name[0]) else 0
       vs_count[vs_key] += 1
 
-  return np.array(X), np.array(Y)
+    # >> track how many matches didn't have minimum required data
+    else:
+      err_count += 1
+
+  print 'Number of matches with insuficient data = %s' % (err_count,)
+  return csr_matrix(X), np.array(Y)
 
 
 """
@@ -237,14 +265,16 @@ def model1(X, Y):
   return correct / float(X.shape[0])
 
 def model2(X, Y, K=5):
+  print X.shape
+  print Y.shape
 
   # >> random forest requires dense arrays...
   X = X.todense()
 
   # pick classifier
-  #clf = LinearSVC(loss='l2', penalty='l2', dual=False, tol=1e-3)
+  clf = LinearSVC(loss='l2', penalty='l2', dual=False, tol=1e-3)
   #clf = SVC()
-  clf = RandomForestClassifier(n_estimators=100)
+  #clf = RandomForestClassifier(n_estimators=100)
 
   # randomly pick K folds
   idx = range(X.shape[0])
