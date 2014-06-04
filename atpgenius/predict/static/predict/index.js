@@ -76,6 +76,7 @@ $(document).ready(function() {
       data: {
         'p1-name' : $("#p1-name").val(),
         'p2-name' : $("#p2-name").val(),
+        'tournament-level' : $("#level").val(),
         'surface' : $("#surface").val(),
         'tournament-round' : $("#tournament-round").val()
       },
@@ -84,6 +85,9 @@ $(document).ready(function() {
         $("#predicted-confidence").html(data['margin']);
         $(".fv").each(function(i) {
           $(this).html(data['feature-vector'][i]);
+        });
+        $(".fc").each(function(i) {
+          $(this).html(data['feature-coefficients'][i]);
         });
         $("#prediction-loading").hide();
         $("#prediction-results").show();

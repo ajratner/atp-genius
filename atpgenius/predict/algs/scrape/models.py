@@ -42,6 +42,18 @@ class Match(Base):
 
   def __repr__(self):
     return '<Match(%s, %s (%s) d. %s (%s))>' % (self.date, self.p1_name, self.p1_atp_rank_at_time, self.p2_name, self.p2_atp_rank_at_time)
+
+
+class Tournament(Base):
+  __tablename__ = 'tournaments'
+
+  id = Column(Integer, primary_key=True)
+  name = Column(String(100))
+  surface = Column(String(25))
+  level = Column(String(5))
+
+  def __repr__(self):
+    return '<Tournament(%s, %s, %s)>' % (self.id, self.name, self.level)
   
 
 

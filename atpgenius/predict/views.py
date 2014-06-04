@@ -65,7 +65,7 @@ def get_prediction(request):
 
   # vectorize the match
   print '>> vectorizing match'
-  f = vectorize_match(players[0].name, players[1].name, players[0].atp_rank, players[1].atp_rank, req['surface'], req['tournament-round'], session=session)
+  f = vectorize_match(players[0].name, players[1].name, players[0].atp_rank, players[1].atp_rank, int(req['tournament-level']), req['surface'], req['tournament-round'], session=session)
 
   # loading classifier
   print '>> loading classifier'
@@ -89,16 +89,18 @@ def get_prediction(request):
    
   # predict the match winner
   print '>> predicting match winner'
-  Y = clf.predict(np.array([f]))
+  X = np.array([f])
+  Y = clf.predict(X)
+  confidence = clf.decision_function(X)
 
   # output the results 
-  print clf.coef_
   winner = req['p1-name'] if Y[0] == 1 else req['p2-name']
-  margin = -1
+  margin = 100.0*confidence[0] if Y[0] == 1 else -100.0*confidence[0]
   
   data = {
     'winner' : winner,
     'margin' : '%.2f' % (margin,),
-    'feature-vector' : list(f)
+    'feature-vector' : ['%.3f' % (x,) for x in list(f)],
+    'feature-coefficients' : ['%.3f' % (x,) for x in list(clf.coef_[0])]
   }
   return HttpResponse(json.dumps(data), mimetype="application/json")

@@ -1,6 +1,6 @@
 import sys
 from scrape.util import *
-from scrape.models import Player, Match
+from scrape.models import Player, Match, Tournament
 import random
 import numpy as np
 from sqlalchemy import or_, and_, desc
@@ -53,16 +53,52 @@ def baseline2_sub(pid=None):
 
 
 # Model #1- vectorize single-match features only, run through simple ML model
-N_FEATURES = 8
+N_FEATURES = 10
 LAST_N_MATCHES = 5
 UNK_RANK = 1000
+SURFACE_MAP = {'Clay':0, 'Hard':1, 'Grass':2, 'Carpet':2}
+T_LEVEL_MAP = {'CH':0, 'ATP':1, 'M1000':2, 'GS':3, '':1}
+
+
+# tournament level sub-function
+def tournament_level(tournament, session=None):
+  session = session if session else mysql_session()
+
+  # try for direct match first
+  tournaments = session.query(Tournament).filter(Tournament.name == tournament).all()
+  if tournaments and len(tournaments) > 0:
+    return T_LEVEL_MAP[tournaments[0].level.strip()]
+
+  # else look for imilar and average
+  else:
+    tournaments=session.query(Tournament).filter(Tournament.name.like('%'+tournament+'%')).all()
+    if tournaments and len(tournaments) > 0:
+      return int(np.mean([T_LEVEL_MAP[t.level.strip()] for t in tournaments]))
+    else:
+      return 1
+
+# create tournament level map
+# NOTE: just do this once when scraping the data in the first place??
+def create_tournament_level_map(matches, session=None):
+  session = session if session else mysql_session()
+  tl_map = {}
+  for m in matches:
+    if not tl_map.has_key(m.tournament):
+      tl_map[m.tournament] = tournament_level(m.tournament, session)
+  return tl_map
 
 
 # core feature assembly function
 # feature range = [-1,1]
+
 # >> vs_p2  =  list of win/losses ~ [1, 0]
+
 # >> lnm = last_n_matches  =  list of (win/loss ~ [1,0], rank-at-time)
-def get_match_features(p1_rank, p2_rank, t_round, surface, vs_p2, lnm1, lnm2):
+
+# >> pNfr = 'player N faceted record'
+# >> array of (w,l) for: overall (0), surfaces (1-3), tournament levels (4-7)
+
+def get_match_features(p1_rank, p2_rank, tl, surface, vs_p2, lnm1, lnm2, p1fr, p2fr):
   f = np.zeros(N_FEATURES)
 
   # feature 1 - binary, is player higher rank?
@@ -71,38 +107,52 @@ def get_match_features(p1_rank, p2_rank, t_round, surface, vs_p2, lnm1, lnm2):
   # feature 2 - norm. + capped rank difference
   f[1] = max(min((p2_rank - p1_rank)/100.0, 1.0), -1.0)
 
-  # feature 3 - norm. tournament round
-  f[2] = (5 - float(t_round)) / 5.0
+  # feature 3 - vs. opponent history
+  f[2] = 2.0*vs_p2 - 1.0
 
-  # feature 4 - p1 relative performance on surface
-  # NOTE: to-do
+  # feature 4 - last n matches avg for player 1
+  f[3] = 2.0*((sum([x[0] for x in lnm1]) / float(LAST_N_MATCHES)) - 0.5)
 
-  # NOTE: to-do: difficulty of tournament
+  # feature 5 - last n matches avg for player 2
+  f[4] = 2.0*((sum([x[0] for x in lnm2]) / float(LAST_N_MATCHES)) - 0.5)
+
+  # feature 6 - binary recent change in rank for p1
+  mov_avg = np.mean([lnm1[i-1][1] - lnm1[i][1] for i in range(1, len(lnm1)) if lnm1[i][1] and lnm1[i-1][1]]) if len(lnm1) > 1 else 0
+  f[5] = 1.0 if mov_avg > 0 else -1.0
+
+  # feature 7 - binary recent change in rank for p2
+  mov_avg = np.mean([lnm2[i-1][1] - lnm2[i][1] for i in range(1, len(lnm2)) if lnm2[i][1] and lnm2[i-1][1]]) if len(lnm2) > 1 else 0
+  f[6] = 1.0 if mov_avg > 0 else -1.0
+
+  # >> get surface int
+  s = SURFACE_MAP[surface] if SURFACE_MAP.has_key(surface) else -1
+
+  # feature 8 - p1 relative performance on this match's surface
+  if sum(p1fr[0]) > 0 and sum(p1fr[s+1]) > 0:
+    f[7] = (p1fr[s+1][0]/float(sum(p1fr[s+1]))) - (p1fr[0][0]/float(sum(p1fr[0])))
+
+  # feature 9 - p2 relative performance on surface
+  if sum(p2fr[0]) > 0 and sum(p2fr[s+1]) > 0:
+    f[8] = (p2fr[s+1][0]/float(sum(p2fr[s+1]))) - (p2fr[0][0]/float(sum(p2fr[0])))
+
+  # feature 10 - p1 vs p2 relative experience at tournament level
+  if sum(p1fr[0]) > 0 or sum(p2fr[0]) > 0:
+    f[9] = float(sum(p1fr[tl+4]) - sum(p2fr[tl+4])) / max(sum(p1fr[0]), sum(p2fr[0]))
+
+  # feature 12 - 
+
+
+  # features to (potentially) add:
+
+  # NOTE: to-do: use tournament round?
 
   # NOTE: to-do: defending points
   # >> http://www.pinnaclesports.com/online-betting-articles/03-2014/tennis-ranking-points.aspx
 
-  # feature 5 - vs. opponent history
-  f[3] = 2.0*vs_p2 - 1.0
-
-  # feature 6 - last n matches avg for player 1
-  f[4] = 2.0*((sum([x[0] for x in lnm1]) / float(LAST_N_MATCHES)) - 0.5)
-
-  # feature 6 - last n matches avg for player 2
-  f[5] = 2.0*((sum([x[0] for x in lnm2]) / float(LAST_N_MATCHES)) - 0.5)
-
-  # feature 7 - binary recent change in rank for p1
-  # NOTE: >> change so pos --> rank going down!
-  mov_avg = np.mean([lnm1[i][1] - lnm1[i-1][1] for i in range(1, len(lnm1)) if lnm1[i][1] and lnm1[i-1][1]]) if len(lnm1) > 1 else 0
-  f[6] = 1.0 if mov_avg > 0 else -1.0
-
-  # feature 7 - binary recent change in rank for p2
-  # NOTE: >> change so pos --> rank going down!
-  mov_avg = np.mean([lnm2[i][1] - lnm2[i-1][1] for i in range(1, len(lnm2)) if lnm2[i][1] and lnm2[i-1][1]]) if len(lnm2) > 1 else 0
-  f[7] = 1.0 if mov_avg > 0 else -1.0
-
   # XXX old features...
   """
+  # feature 3 - norm. tournament round
+  # f[2] = (5 - float(t_round)) / 5.0
 
   # feature 6 - norm. + capped winning streak (consecutive previous wins)
   # XXX nix this?
@@ -122,7 +172,7 @@ def get_match_features(p1_rank, p2_rank, t_round, surface, vs_p2, lnm1, lnm2):
 
 
 # vectorize a single (eg unseen) match, based only on certain provided info
-def vectorize_match(p1_name, p2_name, p1_rank, p2_rank, surface, t_round, session=None):
+def vectorize_match(p1_name, p2_name, p1_rank, p2_rank, t_level, surface, t_round,session=None):
   session = mysql_session() if not session else session
 
   # get p1,p2 joint match history
@@ -130,25 +180,67 @@ def vectorize_match(p1_name, p2_name, p1_rank, p2_rank, surface, t_round, sessio
   p2w = session.query(Match).filter(and_(Match.p1_name == p2_name, Match.p2_name == p1_name)).count()
   vs_p2 = float(p1w) / (p1w + p2w) if p1w + p2w > 2 else 0.5
 
-  # get last n matches for p1
-  last_n = session.query(Match).filter(or_(Match.p1_name == p1_name, Match.p2_name == p1_name)).order_by(desc(Match.date))[:LAST_N_MATCHES]
+  # get all matches for both players
+  p1_matches = session.query(Match).filter(or_(Match.p1_name == p1_name, Match.p2_name == p1_name)).order_by(desc(Match.date)).all()
+  p2_matches = session.query(Match).filter(or_(Match.p1_name == p2_name, Match.p2_name == p2_name)).order_by(desc(Match.date)).all()
+
+  # compile pfr dicts
+  tl_map = create_tournament_level_map(p1_matches+p2_matches, session)
+
+  # p1
+  p1fr = [[0,0] for i in range(8)]
+  for m in p1_matches:
+    w = 0 if  m.p1_name == p1_name else 1
+    
+    # overall record
+    p1fr[0][w] += 1
+
+    # surface-specific record
+    try:
+      s = SURFACE_MAP[m.surface]
+      p1fr[s+1][w] += 1
+    except KeyError:
+      pass
+
+    # tournament-level specific record
+    t = tl_map[m.tournament]
+    p1fr[t+4][w] += 1
+
+  # p2
+  p2fr = [[0,0] for i in range(8)]
+  for m in p2_matches:
+    w = 0 if  m.p1_name == p2_name else 1
+    
+    # overall record
+    p2fr[0][w] += 1
+
+    # surface-specific record
+    try:
+      s = SURFACE_MAP[m.surface]
+      p2fr[s+1][w] += 1
+    except KeyError:
+      pass
+
+    # tournament-level specific record
+    t = tl_map[m.tournament]
+    p2fr[t+4][w] += 1
+
+  # get last n matches
   lnm1 = []
-  for m in last_n:
+  for m in p1_matches[:LAST_N_MATCHES]:
     if m.p1_name == p1_name:
       lnm1.append((1, m.p1_rank))
     else:
       lnm1.append((0, m.p2_rank))
-
-  last_n = session.query(Match).filter(or_(Match.p1_name == p2_name, Match.p2_name == p2_name)).order_by(desc(Match.date))[:LAST_N_MATCHES]
   lnm2 = []
-  for m in last_n:
+  for m in p2_matches[:LAST_N_MATCHES]:
     if m.p1_name == p2_name:
       lnm2.append((1, m.p1_rank))
     else:
       lnm2.append((0, m.p2_rank))
 
   # get features
-  f = get_match_features(p1_rank, p2_rank, t_round, surface, vs_p2, lnm1, lnm2)
+  f = get_match_features(p1_rank, p2_rank, t_level, surface, vs_p2, lnm1, lnm2, p1fr, p2fr)
   return f
 
 
@@ -161,6 +253,12 @@ def vectorize_match(p1_name, p2_name, p1_rank, p2_rank, surface, t_round, sessio
 def vectorize_data():
   err_count = 0
   session = mysql_session()
+
+  # get matches
+  matches = session.query(Match).order_by(Match.date).all()
+
+  # pfr- player faceted record of (w,l)
+  pfr = defaultdict(lambda : [[0,0] for i in range(8)])
   
   # last N matches as (win/loss, rank at time)
   lnm = defaultdict(list)
@@ -169,10 +267,16 @@ def vectorize_data():
   vs_win = defaultdict(int)
   vs_count = defaultdict(int)
 
+  # get tournament level map
+  tl_map = create_tournament_level_map(matches, session)
+
   # go through all the matches by date
   X = []
   Y = []
-  for i,m in enumerate(session.query(Match).order_by(Match.date).all()):
+  for i,m in enumerate(matches):
+
+    # try to get tournament level
+    tl = tl_map[m.tournament]
 
     # vectorize based on current data
     if m.date and m.p1_rank and m.p2_rank:
@@ -183,14 +287,32 @@ def vectorize_data():
       # >> the winner, we must randomize the ordering here
       if random.random() > 0.5:
         vs_p2 = vs_p2 if ord(m.p1_name[0]) < ord(m.p2_name[0]) else 1.0 - vs_p2
-        f = get_match_features(m.p1_rank, m.p2_rank, m.tournament_round, m.surface, vs_p2, lnm[m.p1_name], lnm[m.p2_name])
+        f = get_match_features(m.p1_rank, m.p2_rank, tl, m.surface, vs_p2, lnm[m.p1_name], lnm[m.p2_name], pfr[m.p1_name], pfr[m.p2_name])
         X.append(f)
         Y.append(1.0)
       else:
         vs_p2 = vs_p2 if ord(m.p1_name[0]) > ord(m.p2_name[0]) else 1.0 - vs_p2
-        f = get_match_features(m.p2_rank, m.p1_rank, m.tournament_round, m.surface, vs_p2, lnm[m.p2_name], lnm[m.p1_name])
+        f = get_match_features(m.p2_rank, m.p1_rank, tl, m.surface, vs_p2, lnm[m.p2_name], lnm[m.p1_name], pfr[m.p2_name], pfr[m.p1_name])
         X.append(f)
         Y.append(-1.0)
+
+      # update pfr dict
+      
+      # >> overall
+      pfr[m.p1_name][0][0] += 1
+      pfr[m.p2_name][0][1] += 1
+      
+      # >> surfaces
+      try:
+        s = SURFACE_MAP[m.surface]
+        pfr[m.p1_name][s+1][0] += 1
+        pfr[m.p2_name][s+1][1] += 1
+      except KeyError:
+        pass
+
+      # >> tournament levels
+      pfr[m.p1_name][tl+4][0] += 1
+      pfr[m.p2_name][tl+4][1] += 1
 
       # update lnm dict
       lnm[m.p1_name].append((1, m.p1_rank))
@@ -211,32 +333,6 @@ def vectorize_data():
   print 'Number of matches with insuficient data = %s' % (err_count,)
   return csr_matrix(X), np.array(Y)
 
-
-"""
-# vectorize all matches from database
-def vectorize_data():
-  session = mysql_session()
-  player_cache = {}
-  X = []
-  Y = []
-
-  # go through all the matches in the database
-  # NOTE: TO-DO: optimize this with a simple cache?
-  for i,m in enumerate(session.query(Match).all()):
-
-    if i%100 == 0:
-      print '\t%s' % (i,)
-
-    # >> we want to predict whether p1 wins or not.  Since in the data, p1 is by definition
-    # >> the winner, we must randomize the ordering here
-    if random.random() > 0.5:
-      Y.append(1)
-      X.append(vectorize_match(m.p1_name, m.p2_name, m.p1_rank, m.p2_rank, m.surface, m.tournament_round, session=session))
-    else:
-      Y.append(-1)
-      X.append(vectorize_match(m.p2_name, m.p1_name, m.p2_rank, m.p1_rank, m.surface, m.tournament_round, session=session))
-  return np.array(X), np.array(Y)
-"""
 
 
 N_FOLDS = 5
@@ -298,6 +394,7 @@ def model2(X, Y, K=5):
     clf.fit(X_train, Y_train)
 
     # save the trained classifier to disk
+    # NOTE: we should train on ALL DATA at end then dump that! 
     joblib.dump(clf, 'saved_model/atp_genius_trained.pkl')
 
     # predict and get simple accuracy (precision)
@@ -307,6 +404,9 @@ def model2(X, Y, K=5):
       if Y_test[i] == Y_p[i]:
         correct += 1
     scores.append(correct / float(X_test.shape[0]))
+
+  # re-train on all data & save to disk
+  # NOTE: TO-DO
   
   # average the results of the k-fold tests
   return np.mean(scores)
