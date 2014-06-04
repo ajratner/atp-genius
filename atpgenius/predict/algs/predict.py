@@ -14,6 +14,7 @@ from sklearn.grid_search import GridSearchCV
 from sklearn.externals import joblib
 from collections import defaultdict
 from time import time
+import cPickle
 
 
 # get the matches from the db
@@ -53,7 +54,7 @@ def baseline2_sub(pid=None):
 
 
 # Model #1- vectorize single-match features only, run through simple ML model
-N_FEATURES = 10
+N_FEATURES = 12
 LAST_N_MATCHES = 5
 UNK_RANK = 1000
 SURFACE_MAP = {'Clay':0, 'Hard':1, 'Grass':2, 'Carpet':2}
@@ -139,8 +140,13 @@ def get_match_features(p1_rank, p2_rank, tl, surface, vs_p2, lnm1, lnm2, p1fr, p
   if sum(p1fr[0]) > 0 or sum(p2fr[0]) > 0:
     f[9] = float(sum(p1fr[tl+4]) - sum(p2fr[tl+4])) / max(sum(p1fr[0]), sum(p2fr[0]))
 
-  # feature 12 - 
+  # feature 11 - p1 record at this tournament level
+  if sum(p1fr[tl+4]) > 0:
+    f[10] = 2.0*(p1fr[tl+4][0] / float(sum(p1fr[tl+4]))) - 1.0
 
+  # feature 12 - p2 record at this tournament level
+  if sum(p2fr[tl+4]) > 0:
+    f[11] = 2.0*(p2fr[tl+4][0] / float(sum(p2fr[tl+4]))) - 1.0
 
   # features to (potentially) add:
 
@@ -376,6 +382,10 @@ def model2(X, Y, K=5):
   idx = range(X.shape[0])
   random.shuffle(idx)
 
+  # store info on hyperplane distance / accuracy
+  tc_scores = []
+  tc_dists = []
+
   # do K-fold testing
   scores = []
   ks = int(len(idx)/float(K))
@@ -393,23 +403,31 @@ def model2(X, Y, K=5):
     # train the classifier
     clf.fit(X_train, Y_train)
 
-    # save the trained classifier to disk
-    # NOTE: we should train on ALL DATA at end then dump that! 
-    joblib.dump(clf, 'saved_model/atp_genius_trained.pkl')
-
     # predict and get simple accuracy (precision)
     Y_p = clf.predict(X_test)
     correct = 0
     for i in range(X_test.shape[0]):
       if Y_test[i] == Y_p[i]:
         correct += 1
+        tc_scores.append(1)
+      else:
+        tc_scores.append(0)
     scores.append(correct / float(X_test.shape[0]))
 
+    tc_dists += list(clf.decision_function(X_test))
+
   # re-train on all data & save to disk
-  # NOTE: TO-DO
+  clf.fit(X, Y)
+  joblib.dump(clf, 'saved_model/atp_genius_trained.pkl')
+
+  # save the confidence scores
+  cPickle.dump(tc_scores, open('saved_model/tc_scores.pkl', 'wb'))
+  cPickle.dump(tc_dists, open('saved_model/tc_dists.pkl', 'wb'))
   
   # average the results of the k-fold tests
   return np.mean(scores)
+
+
 
 
 

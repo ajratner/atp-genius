@@ -57,6 +57,9 @@ $(document).ready(function() {
     source: players.ttAdapter()
   });
 
+  // adjust the styling of the typeahead dropdown once it is constructed
+  $(".tt-dropdown-menu").css("background-color", "white");
+  $(".tt-dropdown-menu").css("width", "100%");
 
   // clicking the predict button- getting the prediction via ajax
   function predict() {
@@ -82,7 +85,7 @@ $(document).ready(function() {
       },
       success: function(data) {
         $("#predicted-winner").html(data['winner']);
-        $("#predicted-confidence").html(data['margin']);
+        $("#predicted-confidence").html(data['confidence']);
         $(".fv").each(function(i) {
           $(this).html(data['feature-vector'][i]);
         });

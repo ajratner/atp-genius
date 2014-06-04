@@ -5,11 +5,26 @@ import simplejson as json
 from algs.scrape.util import *
 from algs.scrape.models import Player, Match
 from algs.scrape.crawl import single_scrape
-from algs.predict import vectorize_match
+from algs.predict import vectorize_match 
 import datetime
 from sklearn.externals import joblib
 from sqlalchemy import or_, and_
 import numpy as np
+import cPickle
+
+
+# given distance of a match vector to the model's decision hyperplane d, and given this same
+# data for all the test/train data, compute a prediction 'confidence' as the probability
+# that the prediction is correct given it is between d & d+dd from the hyperplane
+def confidence_prediction(d, dd=0.05):
+  
+  # load statistical basis data
+  tc_dists = cPickle.load(open('predict/algs/saved_model/tc_dists.pkl', 'rb'))
+  tc_scores = cPickle.load(open('predict/algs/saved_model/tc_scores.pkl', 'rb'))
+
+  # compute probability as 'confidence score' and return
+  idx = [i for i,tcd in enumerate(tc_dists) if tcd < (d+dd) and tcd >= d]
+  return len([i for i in idx if tc_scores[i] == 1]) / float(len(idx))
 
 
 # main predict view
@@ -91,15 +106,14 @@ def get_prediction(request):
   print '>> predicting match winner'
   X = np.array([f])
   Y = clf.predict(X)
-  confidence = clf.decision_function(X)
+  print clf.decision_function(X)
+  confidence = 100.0*confidence_prediction(clf.decision_function(X)[0])
 
   # output the results 
   winner = req['p1-name'] if Y[0] == 1 else req['p2-name']
-  margin = 100.0*confidence[0] if Y[0] == 1 else -100.0*confidence[0]
-  
   data = {
     'winner' : winner,
-    'margin' : '%.2f' % (margin,),
+    'confidence' : '%.2f' % (confidence,),
     'feature-vector' : ['%.3f' % (x,) for x in list(f)],
     'feature-coefficients' : ['%.3f' % (x,) for x in list(clf.coef_[0])]
   }
