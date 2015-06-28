@@ -7,10 +7,16 @@ from algs.scrape.models import Player, Match
 from algs.scrape.crawl import single_scrape
 from algs.predict import vectorize_match 
 import datetime
-from sklearn.externals import joblib
+#from sklearn.externals import joblib
 from sqlalchemy import or_, and_
 import numpy as np
 import cPickle
+
+
+# NOTES:
+# http://wiki.bitnami.com/Amazon_cloud/Where_can_I_find_my_AWS_Marketplace_credentials%253f
+# >> bitnami application password: lYKdRIPqw3vf
+# >> bitnami apache restart: sudo /opt/bitnami/ctlscript.sh restart apache
 
 
 # given distance of a match vector to the model's decision hyperplane d, and given this same
@@ -70,7 +76,7 @@ def get_prediction(request):
   # make sure player data is up to date - reload if older than 1 day from now
   print '>> checking freshness of player data'
   for i,p in enumerate(players):
-    if p.last_updated < datetime.datetime.now() - datetime.timedelta(1):
+    if i==1 or p.last_updated < datetime.datetime.now() - datetime.timedelta(1):
       print '>>> refreshing player %s' % (i,)
       single_scrape(p.url)
 
@@ -84,7 +90,7 @@ def get_prediction(request):
 
   # loading classifier
   print '>> loading classifier'
-  clf = joblib.load('predict/algs/saved_model/atp_genius_trained.pkl')
+  clf = cPickle.load(open('predict/algs/saved_model/atp_genius_trained.pkl', 'rb'))
 
   # >> for RF classifier
   """

@@ -418,7 +418,7 @@ def model2(X, Y, K=5):
 
   # re-train on all data & save to disk
   clf.fit(X, Y)
-  joblib.dump(clf, 'saved_model/atp_genius_trained.pkl')
+  cPickle.dump(clf, open('saved_model/atp_genius_trained.pkl', 'wb'))
 
   # save the confidence scores
   cPickle.dump(tc_scores, open('saved_model/tc_scores.pkl', 'wb'))

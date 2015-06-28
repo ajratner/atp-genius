@@ -5,6 +5,7 @@ from datetime import datetime
 import re
 from util import *
 from sqlalchemy import or_, and_
+import time
 
 
 # general parse modules
@@ -109,8 +110,15 @@ def unique_urls(urls):
 
 # function to parse a single tennisabstract player page into match instances + player metadata
 def parse_player_page(source, url):
+
+  print 'soupifying...'
+  t0 = time.time()
+
   session = mysql_session(ensure_created=True)
   soup = BeautifulSoup(source, "lxml")
+
+  t1 = time.time(); print 'Done in %s' % (t1-t0,); t0=t1
+  print 'scraping player...'
 
   # scrape player bio and create player object
   p = Player()
@@ -132,12 +140,21 @@ def parse_player_page(source, url):
   except AttributeError as e:
     pass
 
+  t1 = time.time(); print 'Done in %s' % (t1-t0,); t0=t1
+  print 'saving player...'
+
   # commit player to database and get id
   # >> if player page already exists, replace!
   if len(session.query(Player).filter(Player.name == p.name).all()) > 0:
     session.query(Player).filter(Player.name == p.name).delete()
   session.add(p)
   session.commit()
+
+  # delete matches first
+  session.query(Match).filter(or_(Match.p1_name == p.name, Match.p2_name == p.name)).delete()
+
+  t1 = time.time(); print 'Done in %s' % (t1-t0,); t0=t1
+  print 'scraping matching...'
 
   # scrape matches list and create corresponding list of match objects
   # >> also track player name urls
@@ -157,9 +174,13 @@ def parse_player_page(source, url):
     urls += m_urls
 
     # check for uniqueness then add to db
-    if session.query(Match).filter(and_(or_(and_(Match.p1_name == m.p1_name, Match.p2_name == m.p2_name), and_(Match.p1_name == m.p2_name, Match.p2_name == m.p1_name)), Match.date == m.date)).count() == 0:
-      session.add(m)
+    #if session.query(Match).filter(and_(or_(and_(Match.p1_name == m.p1_name, Match.p2_name == m.p2_name), and_(Match.p1_name == m.p2_name, Match.p2_name == m.p1_name)), Match.date == m.date)).count() == 0:
+    #  session.add(m)
+    session.add(m)
     ms.append(m)
+
+  t1 = time.time(); print 'Done in %s' % (t1-t0,); t0=t1
+  print 'committing...'
 
   # keep only unique urls (to other player pages for crawler)
   urls = unique_urls(urls)
